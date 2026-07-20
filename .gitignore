@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.idea/
+*.db
+apps/backtest/data/
+.wrangler/
+.env
+.env.*

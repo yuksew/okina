@@ -1,0 +1,24 @@
+{
+  "name": "@okina/backtest",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch": "tsx src/cli/fetch.ts",
+    "backtest": "tsx src/cli/run.ts",
+    "report": "tsx src/cli/report.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@okina/strategy": "workspace:*",
+    "better-sqlite3": "^11.7.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vitest": "^3.0.0"
+  }
+}
