@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "okina",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-01",
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "okina",
+      // wrangler d1 create okina の出力で差し替える
+      "database_id": "REPLACE_ME"
+    }
+  ],
+  "triggers": {
+    // UTC表記。米国市場クローズ後のJST朝に走らせる
+    "crons": [
+      "30 23 * * 1-5", // daily: JST 火-土 08:30（米国市場の翌朝）データ取込→シグナル→監視
+      "0 3 * * 2-6" // watchdog: JST 火-土 12:00 状況更新レポート未着の検知
+    ]
+  }
+  // secrets（wrangler secret put で登録）:
+  //   TIINGO_TOKEN        Tiingo APIトークン
+  //   STATUS_API_TOKEN    状況更新API/CLIのBearerトークン（openssl rand -hex 32 等で生成）
+  //   DISCORD_WEBHOOK_URL Discord通知先（ルーチン環境には置かない。docs/05 §3.2）
+}

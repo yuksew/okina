@@ -1,0 +1,66 @@
+{
+  "as_of": "2026-09-15T23:45:00.000Z",
+  "freshness": {
+    "prices_as_of": "2026-09-15",
+    "fx_as_of": "2026-09-15",
+    "expected_min_date": "2026-09-10",
+    "is_stale": false
+  },
+  "fx": { "pair": "USDJPY", "rate": 151.4, "date": "2026-09-15" },
+  "portfolio": {
+    "date": "2026-09-15",
+    "total_value_jpy": 848100,
+    "drawdown_pct": 0.162,
+    "dd_warning_at": 0.15,
+    "dd_limit_at": 0.2
+  },
+  "positions": [
+    {
+      "account": "paper",
+      "symbol": "SPY",
+      "qty": 0.34,
+      "avg_cost_usd": 622.1,
+      "last_price_usd": 528.7,
+      "last_price_date": "2026-09-15",
+      "value_usd": 179.76,
+      "value_jpy": 27216,
+      "unrealized_pl_usd": -31.76,
+      "unrealized_pl_pct": -0.1501
+    },
+    {
+      "account": "paper",
+      "symbol": "AGG",
+      "qty": 4.9,
+      "avg_cost_usd": 101.2,
+      "last_price_usd": 97.8,
+      "last_price_date": "2026-09-15",
+      "value_usd": 479.22,
+      "value_jpy": 72554,
+      "unrealized_pl_usd": -16.66,
+      "unrealized_pl_pct": -0.0336
+    }
+  ],
+  "core_allocation": {
+    "strategy_id": "s1-fixed-SPY30-AGG70-yearly",
+    "drift_limit": 0.05,
+    "items": [
+      { "symbol": "SPY", "target_weight": 0.3, "actual_weight": 0.2728, "drift": -0.0272, "exceeds_limit": false },
+      { "symbol": "AGG", "target_weight": 0.7, "actual_weight": 0.7272, "drift": 0.0272, "exceeds_limit": false }
+    ]
+  },
+  "pending_signals": [],
+  "recent_alerts": [
+    {
+      "ts": "2026-09-15T23:32:11.000Z",
+      "level": "warning",
+      "kind": "dd_warning",
+      "message": "ドローダウン警告: 現在 -16.2%（警告ライン -15%）"
+    }
+  ],
+  "market": {
+    "SPY": { "date": "2026-09-15", "adj_close_usd": 528.7, "day_change_pct": -0.031 },
+    "QQQ": { "date": "2026-09-15", "adj_close_usd": 471.9, "day_change_pct": -0.042 },
+    "AGG": { "date": "2026-09-15", "adj_close_usd": 97.8, "day_change_pct": -0.008 },
+    "GLD": { "date": "2026-09-15", "adj_close_usd": 342.1, "day_change_pct": 0.012 }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "as_of": "2026-08-11T23:45:00.000Z",
+  "freshness": {
+    "prices_as_of": "2026-08-04",
+    "fx_as_of": "2026-08-05",
+    "expected_min_date": "2026-08-06",
+    "is_stale": true
+  },
+  "fx": { "pair": "USDJPY", "rate": 148.9, "date": "2026-08-05" },
+  "portfolio": {
+    "date": "2026-08-04",
+    "total_value_jpy": 1012400,
+    "drawdown_pct": 0.021,
+    "dd_warning_at": 0.15,
+    "dd_limit_at": 0.2
+  },
+  "positions": [
+    {
+      "account": "paper",
+      "symbol": "SPY",
+      "qty": 0.34,
+      "avg_cost_usd": 622.1,
+      "last_price_usd": 631.4,
+      "last_price_date": "2026-08-04",
+      "value_usd": 214.68,
+      "value_jpy": 31967,
+      "unrealized_pl_usd": 3.16,
+      "unrealized_pl_pct": 0.0149
+    }
+  ],
+  "core_allocation": {
+    "strategy_id": "s1-fixed-SPY30-AGG70-yearly",
+    "drift_limit": 0.05,
+    "items": [
+      { "symbol": "SPY", "target_weight": 0.3, "actual_weight": 0.3007, "drift": 0.0007, "exceeds_limit": false },
+      { "symbol": "AGG", "target_weight": 0.7, "actual_weight": 0.6993, "drift": -0.0007, "exceeds_limit": false }
+    ]
+  },
+  "pending_signals": [],
+  "recent_alerts": [
+    {
+      "ts": "2026-08-11T23:31:02.000Z",
+      "level": "warning",
+      "kind": "data_gap",
+      "message": "SPY の取込に失敗: tiingo fetch failed for SPY: HTTP 429 ..."
+    }
+  ],
+  "market": {
+    "SPY": { "date": "2026-08-04", "adj_close_usd": 631.4, "day_change_pct": 0.0042 }
+  }
+}

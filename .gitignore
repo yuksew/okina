@@ -6,3 +6,4 @@ apps/backtest/data/
 .wrangler/
 .env
 .env.*
+.dev.vars

@@ -1,14 +1,21 @@
 {
   "name": "okina",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "test": "pnpm -r test",
-    "typecheck": "pnpm -r typecheck"
+    "typecheck": "pnpm -r typecheck",
+    "status:snapshot": "tsx scripts/status/snapshot.ts",
+    "status:selfcheck": "tsx scripts/status/selfcheck.ts",
+    "status:publish": "tsx scripts/status/publish.ts",
+    "status:notify": "tsx scripts/status/notify.ts"
   },
   "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.0",
     "typescript": "^5.5.4"
   },
   "pnpm": {

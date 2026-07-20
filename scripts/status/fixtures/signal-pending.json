@@ -1,0 +1,99 @@
+{
+  "as_of": "2026-09-01T23:45:00.000Z",
+  "freshness": {
+    "prices_as_of": "2026-09-01",
+    "fx_as_of": "2026-09-01",
+    "expected_min_date": "2026-08-27",
+    "is_stale": false
+  },
+  "fx": { "pair": "USDJPY", "rate": 149.1, "date": "2026-09-01" },
+  "portfolio": {
+    "date": "2026-09-01",
+    "total_value_jpy": 1034500,
+    "drawdown_pct": 0.008,
+    "dd_warning_at": 0.15,
+    "dd_limit_at": 0.2
+  },
+  "positions": [
+    {
+      "account": "paper",
+      "symbol": "SPY",
+      "qty": 0.2,
+      "avg_cost_usd": 610.0,
+      "last_price_usd": 640.2,
+      "last_price_date": "2026-09-01",
+      "value_usd": 128.04,
+      "value_jpy": 19091,
+      "unrealized_pl_usd": 6.04,
+      "unrealized_pl_pct": 0.0495
+    },
+    {
+      "account": "paper",
+      "symbol": "GLD",
+      "qty": 0.4,
+      "avg_cost_usd": 305.5,
+      "last_price_usd": 322.8,
+      "last_price_date": "2026-09-01",
+      "value_usd": 129.12,
+      "value_jpy": 19252,
+      "unrealized_pl_usd": 6.92,
+      "unrealized_pl_pct": 0.0566
+    }
+  ],
+  "core_allocation": {
+    "strategy_id": "s1-fixed-SPY30-AGG70-yearly",
+    "drift_limit": 0.05,
+    "items": [
+      { "symbol": "SPY", "target_weight": 0.3, "actual_weight": 0.31, "drift": 0.01, "exceeds_limit": false },
+      { "symbol": "AGG", "target_weight": 0.7, "actual_weight": 0.69, "drift": -0.01, "exceeds_limit": false }
+    ]
+  },
+  "pending_signals": [
+    {
+      "id": 41,
+      "date": "2026-08-31",
+      "strategy": "blend-s2-s4t4-5050",
+      "symbol": "SPY",
+      "action": "rebalance",
+      "detail": "{\"targetWeight\":0.225}"
+    },
+    {
+      "id": 42,
+      "date": "2026-08-31",
+      "strategy": "blend-s2-s4t4-5050",
+      "symbol": "QQQ",
+      "action": "rebalance",
+      "detail": "{\"targetWeight\":0.125}"
+    },
+    {
+      "id": 43,
+      "date": "2026-08-31",
+      "strategy": "blend-s2-s4t4-5050",
+      "symbol": "GLD",
+      "action": "rebalance",
+      "detail": "{\"targetWeight\":0.225}"
+    },
+    {
+      "id": 44,
+      "date": "2026-08-31",
+      "strategy": "blend-s2-s4t4-5050",
+      "symbol": "IEF",
+      "action": "rebalance",
+      "detail": "{\"targetWeight\":0.1}"
+    }
+  ],
+  "recent_alerts": [
+    {
+      "ts": "2026-09-01T23:33:40.000Z",
+      "level": "info",
+      "kind": "signal",
+      "message": "月次シグナル確定（基準日 2026-08-31）: SPY 23%, QQQ 13%, GLD 23%, IEF 10%。ダッシュボードで確認し発注してください"
+    }
+  ],
+  "market": {
+    "SPY": { "date": "2026-09-01", "adj_close_usd": 640.2, "day_change_pct": 0.0031 },
+    "QQQ": { "date": "2026-09-01", "adj_close_usd": 583.5, "day_change_pct": 0.0055 },
+    "AGG": { "date": "2026-09-01", "adj_close_usd": 102.4, "day_change_pct": 0.0008 },
+    "GLD": { "date": "2026-09-01", "adj_close_usd": 322.8, "day_change_pct": 0.0102 }
+  }
+}
