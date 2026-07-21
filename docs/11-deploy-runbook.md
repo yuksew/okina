@@ -1,8 +1,18 @@
 # デプロイ・セットアップ手順（P2運用基盤）
 
-- 作成日: 2026-07-20
+- 作成日: 2026-07-20 / **2026-07-22 デプロイ完了**
 - 対象: apps/worker（Cloudflare）と Claude Code Web Routines の初回セットアップ
-- ローカル検証は完了済み（API全系統・CLI・認証・冪等性）。以下は本番反映時にユーザーと一緒に行う手順
+
+## 0. 本番環境（確定値）
+
+| 項目 | 値 |
+|---|---|
+| Worker URL | https://okina.yuksew.workers.dev |
+| D1 database_id | 94e88859-1815-4ca0-ae13-9a2cb7cb4e22（APAC） |
+| Cron | 30 23 \* \* 1-5（日次） / 0 3 \* \* 2-6（番犬）— 登録確認済み |
+| secrets | TIINGO_TOKEN / STATUS_API_TOKEN 登録済み。**DISCORD_WEBHOOK_URL 未登録** |
+| データ | 900日分投入済み（prices 6,160行、2026-07-20まで。fxは日次Cronで自動蓄積） |
+| CLI用トークン | ローカル `.env.status`（gitignore済み）に保存 |
 
 ## 1. Cloudflare（初回のみ）
 
@@ -18,10 +28,13 @@ pnpm run deploy
 ```
 
 - Workers Paid（$5/月）への加入が前提（無料はCPU 10msで不成立。docs/02 §3）。
+  **要確認: 現在のプランがPaidか**（FreeだとCron時のCPU 10msでシグナル計算が失敗しうる）。
 - デプロイ後の疎通: `curl https://okina.<subdomain>.workers.dev/healthz`
-- ヒストリカル投入: 当面は日次Cronの90日upsertで蓄積される。バックテスト用の長期履歴が
-  D1に必要になったら投入スクリプトを別途作る（シグナル計算のウォームアップは約600日
-  必要なので、**運用開始時に一度 apps/backtest の market.db から流し込むのが実用的**。TODO）。
+- ヒストリカル投入（済み）: `apps/backtest` で
+  `pnpm run fetch --universe all --source tiingo` →
+  `pnpm exec tsx src/cli/export-d1-seed.ts --days 900 > seed.sql` →
+  `cd ../worker && wrangler d1 execute okina --remote --file=../backtest/seed.sql`。
+  再実行しても冪等（upsert）。
 
 ## 2. ローカル開発
 

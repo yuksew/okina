@@ -7,3 +7,4 @@ apps/backtest/data/
 .env
 .env.*
 .dev.vars
+apps/backtest/seed.sql

@@ -8,8 +8,7 @@
     {
       "binding": "DB",
       "database_name": "okina",
-      // wrangler d1 create okina の出力で差し替える
-      "database_id": "REPLACE_ME"
+      "database_id": "94e88859-1815-4ca0-ae13-9a2cb7cb4e22"
     }
   ],
   "triggers": {
