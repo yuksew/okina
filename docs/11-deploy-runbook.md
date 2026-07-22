@@ -62,6 +62,11 @@ pnpm run dev                     # http://localhost:8787
 
 ## 4. スキルのゴールデンテスト（Routines登録前に1度実施）
 
+**→ 2026-07-22 実施済み・4ケース合格**。数値一致（評価額・損益率・DD距離を手計算で突合）、
+必須5セクション、禁止事項なし、ケース別挙動（欠損報告モード切替・DD警告の距離明記・
+シグナルの平易な発注案化）を確認。publish/notify は fixture の架空データを本番D1に
+書かないため意図的にスキップ（publish経路自体は本番疎通テストで確認済み）。
+
 ```bash
 OKINA_SNAPSHOT_FIXTURE=scripts/status/fixtures/normal.json claude
 # セッション内で /status-update を実行し、生成レポートを fixtures/README.md の観点でレビュー
