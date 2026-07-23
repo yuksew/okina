@@ -57,7 +57,9 @@ pnpm run dev                     # http://localhost:8787
 - リポジトリ: github.com/yuksew/okina（push済みであること）
 - 環境変数: `OKINA_API_URL`（WorkerのURL）/ `OKINA_STATUS_TOKEN`
 - Network Access: Custom で Worker ドメインのみ許可
-- セットアップスクリプト: `corepack enable && pnpm install --frozen-lockfile`
+- セットアップスクリプト: `corepack enable` のみ（**setupはリポジトリ外で実行されるため
+  `pnpm install` をここに書くと失敗する**。依存導入はスキルの手順0が行う。pnpmのバージョンは
+  package.json の packageManager フィールドで10系に固定済み）
 - 注意: Discord Webhook URL はルーチン環境に**置かない**（Worker経由で通知。docs/05 §3.2）
 
 ## 4. スキルのゴールデンテスト（Routines登録前に1度実施）
